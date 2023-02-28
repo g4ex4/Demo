@@ -16,6 +16,10 @@ namespace Demo.Data.Repositories.Implementations
             _context = context;
         }
 
+        public Repository()
+        {
+        }
+
         public T Add(T item)
         {
             DbSet<T> dbSet = _context.Set<T>();

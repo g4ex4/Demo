@@ -1,4 +1,5 @@
-﻿using Demo.Data.Repositories.Interfaces;
+﻿using Demo.Data.Repositories.Implementations;
+using Demo.Data.Repositories.Interfaces;
 using Demo.Models.Entities;
 
 namespace Demo.BL.Controllers
@@ -15,6 +16,10 @@ namespace Demo.BL.Controllers
         {
             _clientRepository = clientRepository;
             _orderRepository = orderRepository;
+        }
+
+        public OrderService(Repository<Order> repository)
+        {
         }
 
         public void AddOrder(Order order)
