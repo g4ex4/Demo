@@ -1,4 +1,6 @@
-﻿using Demo.Data.Repositories.Interfaces;
+﻿using Demo.Data.DB.SqlServer;
+using Demo.Data.Repositories.Implementations;
+using Demo.Data.Repositories.Interfaces;
 using Demo.Models.Entities;
 
 namespace Demo.BL.Controllers

@@ -1,4 +1,5 @@
-﻿using Demo.Data.Repositories.Implementations;
+﻿using Demo.Data.DB.SqlServer;
+using Demo.Data.Repositories.Implementations;
 using Demo.Data.Repositories.Interfaces;
 using Demo.Models.Entities;
 
@@ -12,7 +13,8 @@ namespace Demo.BL.Controllers
         {
 
         }
-        public OrderService(IRepository<Client> clientRepository, IRepository<Order> orderRepository)
+        public OrderService(IRepository<Client> clientRepository,
+            IRepository<Order> orderRepository)
         {
             _clientRepository = clientRepository;
             _orderRepository = orderRepository;
