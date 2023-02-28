@@ -1,4 +1,4 @@
-﻿namespace BooksLibrary.CMD
+﻿namespace Demo.CMD
 {
     public static class ConsoleConstants
     {

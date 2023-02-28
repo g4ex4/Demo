@@ -1,4 +1,4 @@
-﻿namespace BooksLibrary.CMD
+﻿namespace Demo.CMD
 {
     public static class ConsoleReader<T>
     {
@@ -29,6 +29,8 @@
                 return (T)(object)ConsoleHelper.GetStringFromConsole(fieldName);
 
             if (typeof(int) == typeof(T))
+                return (T)(object)ConsoleHelper.GetIntFromConsole(fieldName);
+            if (typeof(uint) == typeof(T))
                 return (T)(object)ConsoleHelper.GetIntFromConsole(fieldName);
 
             if (typeof(DateTime) == typeof(T))

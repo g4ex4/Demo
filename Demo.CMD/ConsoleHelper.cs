@@ -1,4 +1,6 @@
-﻿namespace BooksLibrary.CMD
+﻿using Demo.CMD;
+
+namespace Demo.CMD
 {
     public static class ConsoleHelper
     {
@@ -15,6 +17,11 @@
         {
             string value = GetStringFromConsole(fieldName);
             return int.Parse(value);
+        }
+        public static uint GetUIntFromConsole(string fieldName)
+        {
+            string value = GetStringFromConsole(fieldName);
+            return uint.Parse(value);
         }
 
         public static DateTime GetDateTimeFromConsole(string fieldName)
