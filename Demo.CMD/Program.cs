@@ -11,12 +11,12 @@ namespace Demo.CMD
         {
             using (AppDbContext db = new AppDbContext())
             {
-                var clientService = new ClientService(new Repository<Client>());
-                var orderService = new OrderService(new Repository<Order>());
+                var clientService = new ClientService(new Repository<Client>(db));
+                var orderService = new OrderService(new Repository<Order>(db));
 
                 while (true)
                 {
-                    Console.Clear();
+
                     Console.WriteLine("Please choose an option:");
                     Console.WriteLine("1. Add new client");
                     Console.WriteLine("2. Add new order");
@@ -29,7 +29,7 @@ namespace Demo.CMD
                     switch (input)
                     {
                         case 1:
-                            Console.WriteLine("Please enter the following client details:");
+                                Console.WriteLine("Please enter the following client details:");
 
                             var firstName = ConsoleReader<string>.Read("first name");
                             var lastName = ConsoleReader<string>.Read("last name");
