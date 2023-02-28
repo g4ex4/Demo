@@ -18,6 +18,7 @@ namespace Demo.BL.Controllers
             _clientRepository = clientRepository;
         }
 
+
         public List<Client> GetClients()
         {
             return _clientRepository.GetAll().ToList();

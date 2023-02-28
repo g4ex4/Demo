@@ -16,6 +16,7 @@ namespace Demo.CMD
 
                 while (true)
                 {
+                    Console.Clear();
                     Console.WriteLine("Please choose an option:");
                     Console.WriteLine("1. Add new client");
                     Console.WriteLine("2. Add new order");

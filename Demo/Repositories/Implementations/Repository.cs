@@ -2,8 +2,6 @@
 using Demo.Data.Repositories.Interfaces;
 using Demo.Models.Common;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 
 namespace Demo.Data.Repositories.Implementations
 {
