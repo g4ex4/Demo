@@ -9,10 +9,6 @@ namespace Demo.BL.Controllers
     {
         private readonly IRepository<Client> _clientRepository;
         private readonly IRepository<Order> _orderRepository;
-        public ClientService()
-        {
-
-        }
         public ClientService(IRepository<Client> clientRepository)
         {
             _clientRepository = clientRepository;

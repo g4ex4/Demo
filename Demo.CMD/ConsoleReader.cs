@@ -31,7 +31,7 @@
             if (typeof(int) == typeof(T))
                 return (T)(object)ConsoleHelper.GetIntFromConsole(fieldName);
             if (typeof(uint) == typeof(T))
-                return (T)(object)ConsoleHelper.GetIntFromConsole(fieldName);
+                return (T)(object)ConsoleHelper.GetUIntFromConsole(fieldName);
 
             if (typeof(DateTime) == typeof(T))
                 return (T)(object)ConsoleHelper.GetDateTimeFromConsole(fieldName);

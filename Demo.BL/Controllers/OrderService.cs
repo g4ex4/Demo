@@ -9,19 +9,12 @@ namespace Demo.BL.Controllers
     {
         private readonly IRepository<Client> _clientRepository;
         private readonly IRepository<Order> _orderRepository;
-        public OrderService()
-        {
 
-        }
         public OrderService(IRepository<Client> clientRepository,
             IRepository<Order> orderRepository)
         {
             _clientRepository = clientRepository;
             _orderRepository = orderRepository;
-        }
-
-        public OrderService(Repository<Order> repository)
-        {
         }
 
         public void AddOrder(Order order)
