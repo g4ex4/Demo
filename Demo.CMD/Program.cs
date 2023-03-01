@@ -2,6 +2,7 @@
 using Demo.Data.DB.SqlServer;
 using Demo.Data.Repositories.Implementations;
 using Demo.Models.Entities;
+using System;
 
 namespace Demo.CMD
 {
@@ -22,20 +23,24 @@ namespace Demo.CMD
                     Console.WriteLine("2. Add new order");
                     Console.WriteLine("3. List all clients");
                     Console.WriteLine("4. List all orders");
-                    Console.WriteLine("5. Exit");
+                    Console.WriteLine("5. Edit Client");
+                    Console.WriteLine("6. Delete Client");
+                    Console.WriteLine("7. Edit order");
+                    Console.WriteLine("8. Delete Order");
+                    Console.WriteLine("9. Exit");
 
                     var input = ConsoleReader<int>.Read("option");
 
                     switch (input)
                     {
                         case 1:
-                                Console.WriteLine("Please enter the following client details:");
+                            Console.WriteLine("Please enter the following client details:");
 
                             var firstName = ConsoleReader<string>.Read("first name");
                             var lastName = ConsoleReader<string>.Read("last name");
                             var phoneNum = ConsoleReader<string>.Read("phone number");
 
-                            var client = new Client
+                            Client client = new Client
                             {
                                 FirstName = firstName,
                                 LastName = lastName,
@@ -45,7 +50,9 @@ namespace Demo.CMD
                             clientService.AddClient(client);
 
                             Console.WriteLine("Client added successfully.");
-                            Console.WriteLine();
+                            Console.WriteLine("Press any key");
+                            Console.ReadKey();
+                            Console.Clear();
                             break;
 
                         case 2:
@@ -67,6 +74,9 @@ namespace Demo.CMD
                             orderService.AddOrder(newOrder);
 
                             Console.WriteLine("Order added successfully.");
+                            Console.WriteLine("Press any key");
+                            Console.ReadKey();
+                            Console.Clear();
                             break;
 
                         case 3:
@@ -85,8 +95,9 @@ namespace Demo.CMD
                             {
                                 Console.WriteLine("No clients found.");
                             }
-
-                            Console.WriteLine();
+                            Console.WriteLine("Press any key");
+                            Console.ReadKey();
+                            Console.Clear();
                             break;
 
                         case 4:
@@ -103,12 +114,62 @@ namespace Demo.CMD
                                     $"{order.Client.FullName} Order Description: {order.Description}" +
                                     $"Price: {order.Price}");
                             }
+                            Console.WriteLine("Press any key");
+                            Console.ReadKey();
+                            Console.Clear();
+                            break;
+                        case 5:
+                            clientId = ConsoleReader<uint>.Read("client ID");
+
+                            firstName = ConsoleReader<string>.Read("first name");
+                            lastName = ConsoleReader<string>.Read("last name");
+                            phoneNum = ConsoleReader<string>.Read("phone number");
+                            client = clientService.GetClientById(clientId);
+                            client.FirstName = firstName;
+                            client.LastName = lastName;
+                            client.PhoneNum = phoneNum;
+                            Console.WriteLine("Press any key");
+                            Console.ReadKey();
+                            Console.Clear();
+                            break;
+                        case 6:
+                            clientId = ConsoleReader<uint>.Read("client Id");
+                            client = clientService.GetClientById(clientId);
+                            clientService.DeleteClient(clientId);
+                            orderService.DeleteOrder(clientId);
+                            Console.WriteLine("Client deleted/n Press any key");
+                            Console.ReadKey();
+                            Console.Clear();
+                            break;
+                        case 7:
+                            var orderId = ConsoleReader<uint>.Read("Order ID");
+                            description = ConsoleReader<string>.Read("product name");
+                            price = ConsoleReader<float>.Read("price");
+                            orderService.GetClientOrders(orderId);
+                            newOrder = new Order()
+                            {
+                                Description = description,
+                                Price = price
+                            };
+
+                            Console.WriteLine("Order edited/n Press any key");
+                            Console.ReadKey();
+                            Console.Clear();
                             break;
 
-                        case 5:
+                        case 8:
+                            orderId = ConsoleReader<uint>.Read("Order ID");
+                            orderService.GetClientOrders(orderId);
+                            orderService.DeleteOrder(orderId);
+                            Console.WriteLine("Order deleted/n Press any key");
+                            Console.ReadKey();
+                            Console.Clear();
+                            break;
+
+
+                        case 9:
                             Console.WriteLine("Exiting program...");
                             return;
-
                         default:
                             Console.WriteLine("Invalid option selected. Please try again.");
                             Console.WriteLine();
